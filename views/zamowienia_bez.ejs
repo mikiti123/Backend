@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Main site</title>
+    <link rel="stylesheet" href="/zamowienia.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="konto">
+        <div>Twój login : <span id='sp'>
+                    <%= login %>
+            </span></div><br>
+        <a href="wiecej">Sklep</a><br><br>
+        <button type="submit" id="wyloguj">Wyloguj</button> <br><br>
+    </div>
+    <div id="zamowione">
+        <div>Jeszcze nic nie zamówiłeś</div>
+    </div>
+    <script>
+        document.getElementById('wyloguj').addEventListener('click',async ()=>{const response = await fetch('/wyloguj',{method: "DELETE",headers:{
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify({
+                login: $("#sp").text().replace(/\s/g,"")
+            })});
+                if(response.status == 200){
+                window.location.href="/log";}
+                else{
+                    console.log(resp.json());
+                }
+            });
+          document.getElementById('wyloguj').addEventListener('mouseenter',function(){
+                document.getElementById('wyloguj').style.cursor = "pointer";
+            });
+            document.getElementById('wyloguj').addEventListener('mouseleave',function(){
+                document.getElementById('wyloguj').style.cursor = "default";
+            });
+    </script>
+</body>
+
+</html>

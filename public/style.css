@@ -1,0 +1,49 @@
+#artykuly{
+    display:grid;
+    grid-template-columns: auto auto auto auto auto auto ;
+    column-gap: 2px;
+    row-gap: 2px;
+}
+.niewybrane{
+    background-color:antiquewhite;
+    border-style:solid;
+    text-align: center;
+    font-size:x-large;
+}
+.wybrane{
+    background-color:gold;
+    border-color: red;
+    color:red;
+    text-align:center;  
+    font-size: x-large;
+    border-style: solid;
+    font-weight: bold;
+}
+.najechane{
+    background-color:blue;
+    color:yellow;
+    text-align:center;  
+    font-size: x-large;
+    border-style: solid;
+    cursor:pointer;
+}
+#sp{
+    font-weight: bold;
+    font-size:x-large;
+}
+#konto{
+    width:fit-content;
+    border-style:solid;
+    padding:30px;
+}
+#b1_poj{
+    display: flex;
+    justify-content: center;
+}
+#b1{
+    height:100px;
+    width:400px;
+}
+#date{
+    margin-left:50px;
+}

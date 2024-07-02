@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Main site</title>
+    <link rel="stylesheet" href="/zamowienia.css"/>
+</head>
+
+<body>
+    <% var log = zamowienie[0].login_klienta %>
+    <h1>Zamówienia</h1>
+    <div id="konto">
+        <div>Twój login : <span id='sp'><%= log %></span></div><br>
+        <a href="wiecej">Sklep</a><br><br>
+        <button type="submit" id="wyloguj">Wyloguj</button>
+        <br><br>
+    </div>
+    <div id="rozwiniecie">(kliknij podwójnie na wybrane zamowienie,aby zobaczyć szczegoły)</div>
+    <div id="zamowione">
+    </div>
+    <script>
+         document.getElementById('wyloguj').addEventListener('click',async ()=>{const response = await fetch('/wyloguj',{method: "DELETE",headers:{
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify({
+                login: document.getElementById('sp').textContent.replace(/\s/g,"")
+            })});
+                if(response.status == 200){
+                window.location.href="/log";}
+                else{
+                    console.log(resp.json());
+                }
+            });
+          document.getElementById('wyloguj').addEventListener('mouseenter',function(){
+                document.getElementById('wyloguj').style.cursor = "pointer";
+            });
+            document.getElementById('wyloguj').addEventListener('mouseleave',function(){
+                document.getElementById('wyloguj').style.cursor = "default";
+            });
+     const koszt = <%- JSON.stringify(koszty) %>;
+    const zamowienie = JSON.parse(`<%- JSON.stringify(zamowienie).replace(/\\/g, '\\\\').replace(/'/g, '\\\'') %>`);
+    let i = 0;
+    zamowienie.forEach(function(element){
+        const poj = document.createElement('div');
+        poj.className = 'zam';
+        document.getElementById('zamowione').appendChild(poj);
+        //1
+        const naz =  document.createElement('div');
+        naz.className = 'id';
+        poj.appendChild(naz);
+        //2
+        const kalendarz =  document.createElement('div');
+        kalendarz.className = 'data';
+        poj.appendChild(kalendarz);
+        //3
+        const koszty =  document.createElement('div');
+        koszty.className = 'koszt';
+        poj.appendChild(koszty);
+        naz.textContent = element.id;
+        //data
+        kalendarz.textContent = element.data.split('T')[0];
+        //koszt
+        koszty.textContent = koszt[i].cena + " zł"; 
+        //klikniecie
+        poj.addEventListener('dblclick', function(event){
+            var war = this.children[0].textContent;
+            window.location.href = `/zam/wybrane?id=${war}`;
+             
+        });
+        poj.addEventListener('mouseenter',function(event){
+            this.className="najechane";
+        });
+        poj.addEventListener('mouseleave',function(event){
+            this.className="zam";
+        });
+        i += 1;
+    });
+    </script>
+</body>
+
+</html>

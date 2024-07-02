@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/app.js"></script>
+    <title>More</title>
+</head>
+
+<body>
+    <h1> Sklep</h1>
+    <div id="konto">
+        <div>Twój login : <span id='sp'> <% var urywek = data.toISOString().split('T')[0]; var godzina = data.getHours(); var minuta = data.getMinutes();  if(godzina < 10){godzina = "0" + godzina;} if(minuta < 10){minuta = "0" + minuta;}var praw = urywek + " godz. "+ godzina +":" + minuta %>
+            <%= login %></span> <spane id='date'>Data rejestracji: <%= praw %></spane></div><br>
+        <a href="zamowienia">Twoje zamówienia</a><br><br>
+        <button type="submit" id="wyloguj">Wyloguj</button>
+        <button type ='submit' id="usun">Usuń konto z serwera</button>
+
+    </div>
+    <h2>Zaznacz artykuły, które chcesz kupić</h2>
+    <div id="artykuly">
+        <div class="niewybrane">
+            <p class="nazwa">Kiwi</p><span class="cena">2.25</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">kapusta kiszona</p><span class="cena">6.1</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">rzodkiewka</p><span class="cena">3.2</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">kalafior</p><span class="cena">11</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">banan</p><span class="cena">9.9</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">pietruszka</p><span class="cena">5</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">jablko</p><span class="cena">4.4</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">koperek</p><span class="cena">3.4</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">melon</p><span class="cena">12</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">natka pietruszki</p><span class="cena">1.2</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">pomidor</p><span class="cena">12</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">czosnek</p><span class="cena">3.3</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">bataty</p><span class="cena">14.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">arbuz</p><span class="cena">10</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">brokuł</p><span class="cena">7.8</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">sałata</p><span class="cena">5</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">por</p><span class="cena">5</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">awokado</p><span class="cena">8.5</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">marchew</p><span class="cena">7.2</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">burak</p><span class="cena">4</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">pomarańcza</p><span class="cena">15</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">cukinia</p><span class="cena">16</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">bób</p><span class="cena">22</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">ogórek</p><span class="cena">9.4</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">bułka śniadaniowa</p><span class="cena">1.35</span> zł/<span
+                class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">migdały</p><span class="cena">52.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">pasztet drobiowy</p><span class="cena">82.99</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">kiełbasa jałowcowa</p><span class="cena">62.12</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">kabanos</p><span class="cena">69.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">dorszcz</p><span class="cena">59.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">chleb żytni</p><span class="cena">9.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">chleb pszenny</p><span class="cena">7.89</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">schab pieczony</p><span class="cena">122.99</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">parówka</p><span class="cena">100.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">orzechy laskowe</p><span class="cena">42.99</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">chleb pszenno-żytni</p><span class="cena">8.89</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">kiełbasa jałowcowa</p><span class="cena">62.12</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">kiełbasa jałowcowa</p><span class="cena">62.12</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">tuńczyk</p><span class="cena">12</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">czekolada gorzka</p><span class="cena">12.99</span> zł/<span
+                class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">kiełbasa wiejska</p><span class="cena">93.99</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">nerkowce</p><span class="cena">52</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">mintaj</p><span class="cena">49.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">makrela</p><span class="cena">32.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">baton mars</p><span class="cena">4.99</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">polędwiczka drobiowa</p><span class="cena">162.99</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">boczek</p><span class="cena">79.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">pistacje</p><span class="cena">79.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">panga</p><span class="cena">33</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">kajzerka</p><span class="cena">0.89</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">knopers</p><span class="cena">2</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">pstrąg</p><span class="cena">64.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">grahamka</p><span class="cena">1.2</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">kinderki</p><span class="cena">6.99</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">chleb graham</p><span class="cena">12.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">orzechy piniowe</p><span class="cena">43.99</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">śledź</p><span class="cena">22.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">orzechy włoskie</p><span class="cena">49.99</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">żelki</p><span class="cena">7.99</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">szport</p><span class="cena">13.99</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">orzechy brazylijskie</p><span class="cena">59.99</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">łosoś atlantycki</p><span class="cena">72.99</span> zł/<span
+                class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">czekolada mleczna</p><span class="cena">8.99</span> zł/<span
+                class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">fistaszki</p><span class="cena">39.99</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">cebula</p><span class="cena">2</span> zł/<span class="jednostka">sztuka</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+        <div class="niewybrane">
+            <p class="nazwa">ziemniak</p><span class="cena">4.4</span> zł/<span class="jednostka">kilogram</span>
+            <p>Wprowadź ilość:</p><input type="text" />
+        </div>
+    </div>
+    <div id="b1_poj"><button type="submit" id="b1">Kup teraz</button></div>
+</body>
+
+</html>

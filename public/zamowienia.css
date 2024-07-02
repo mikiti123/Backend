@@ -1,0 +1,29 @@
+.zam{
+    padding:10px;
+    display:grid;
+    grid-template-columns: auto auto auto;
+    border-style:solid;
+    margin-top:25px;
+}
+.najechane{
+    padding:10px;
+    margin-top:25px;
+    display:grid;
+    grid-template-columns: auto auto auto;
+    cursor:pointer;
+    background-color: yellow;
+    border-style:solid;
+}
+#rozwiniecie{
+    display:flex;
+    justify-content: center;
+}
+#konto{
+    border-style:solid;
+    width:200px;
+    padding:20px;
+}
+#sp{
+    font-weight: bold;
+    font-size:x-large;
+}

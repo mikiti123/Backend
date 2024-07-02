@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8"/>
+<link rel ='stylesheet' href="/rej.css"/>
+<title>Main site</title>
+</head>
+<body>
+    <form id="form"> 
+        <label for ="fname">login</label><br>
+        <input type ='text' id ='fname' ><br>
+        <label for="haslo">haslo</label><br>
+        <input type ='password' id="haslo" ><br> <br>
+        <button type="submit" id="submit">Zarejestruj się</button>
+    </form>
+    <div id="a">
+    <p>Jeśli masz już założone konto: </p>
+    <a href = "log">Zaloguj się</a>
+    </div>
+    <script>
+        const login = document.getElementById('fname');
+        const haslo = document.getElementById('haslo');
+        const submit = document.getElementById('submit');
+        const form = document.getElementById('form');
+        form.addEventListener('submit',function(event){
+            event.preventDefault();
+        });
+        submit.addEventListener('click',async function(){
+            if(login.value == ""||haslo.value==""){return;}
+            if(login.value.length < 6 || haslo.value.length < 6){const m = document.createElement('p');
+                form.appendChild(m);
+                m.textContent = "hasło i login muszą mieć co najmniej 6 znakow";return;}
+            const response = await fetch('http://localhost:3000/zarejestruj',{
+                method:'POST',
+                headers:{
+                    "Content-Type" : "application/json"
+                },
+                body: JSON.stringify({
+                    login: login.value,
+                    haslo: haslo.value
+                })
+            });
+            if(response.status == 200){
+                window.location.href = 'http://localhost:3000/log';
+            }
+            else{
+                const m = document.createElement('p');
+                document.getElementsByTagName('body')[0].insertBefore(m,document.getElementById('a'));
+                m.textContent = "Ten login jest już zajęty, wybierz inny";
+            }
+
+        });
+    </script>
+</body>

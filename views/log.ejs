@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8"/>
+<title>Main site</title>
+</head>
+<body>
+    <form id="form"> 
+        <label for ="fname">login</label><br>
+        <input type ='text' id ='fname'><br>
+        <label for="haslo">haslo</label><br>
+        <input type ='password' id="haslo"><br> <br>
+        <button type="submit" id="submit">Zaloguj się</button>
+    </form>
+    <div id ='a'>
+        <p>Jesli nie masz konta:</p>
+        <a href ="rej">Zarejestruj się</a>
+    </div>
+    <script>
+        const form = document.getElementById('form');
+        const haslo = document.getElementById('haslo');
+        const login = document.getElementById('fname');
+        const submit = document.getElementById('submit');
+        submit.addEventListener('mouseenter',function(){
+            submit.style.cursor = "pointer";
+        });
+        submit.addEventListener('mouseleave',function(){
+            submit.style.cursor = "default";
+        });
+        form.addEventListener('submit',function(event){event.preventDefault();});
+        submit.addEventListener('click', async function(){
+            const resp = await fetch('http://localhost:3000/autoryzacja',{
+                method:'POST',
+                headers:{
+                    "Content-Type" : "application/json"
+                },
+                body: JSON.stringify({
+                    login: login.value,
+                    haslo: haslo.value
+                })
+            });
+            if(resp.status == 200){
+                window.location.href = "/wiecej";
+            }
+            else{
+                const m = document.createElement('p');
+                document.getElementsByTagName('body')[0].insertBefore(m,document.getElementById('a'));
+                const ob = await resp.json();
+                m.textContent = JSON.stringify(ob.message);
+            }
+        });
+    </script>
+</body>

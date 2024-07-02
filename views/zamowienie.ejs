@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/zamowienie.css"/>
+<meta charset="UTF-8"/>
+<title>Main site</title>
+</head>
+<body>
+    <div id="konto">
+        <div>Twój login : <span id='sp'>
+                <% var ur = zamowienie.login_klienta %> <%= ur %>
+            </span></div><br>
+        <a href="/wiecej">Sklep</a>
+        <a href="/zamowienia">Twoje zamówienia</a><br><br>
+        <button type="submit" id="wyloguj">Wyloguj</button>
+    </div>
+    <h1><%  var us = zamowienie.id %> <%= us %></h1>
+    <h2>Złożono: <% var dat = zamowienie.data.toISOString(); 
+        var normalna = dat.split('T')[0];var godzina = zamowienie.data.getHours(); var minuta = zamowienie.data.getMinutes(); if(godzina < 10){godzina = "0" + godzina;} if(minuta < 10){minuta = "0" + minuta;} var praw = normalna +" o godzinie "+ godzina + ":"+minuta %> <%= praw %></h2>
+    <div id ="zakupione">
+        <div class="n1">nazwa</div>
+        <div class="n1">rodzaj</div>
+        <div class="n1">cena</div>
+        <div class="n1">ilość</div>
+        <div class="n1">koszt</div>
+    </div>
+    <script defer>
+    var total = 0; 
+    const zamowienie = JSON.parse('<%- JSON.stringify(zamowienie).replace(/\\/g, '\\\\').replace(/'/g, '\\\'') %>');
+       const artykul = JSON.parse('<%- JSON.stringify(artykul).replace(/\\/g, '\\\\').replace(/'/g, '\\\'') %>'); 
+        for (let i=0; i< zamowienie.kupione.length;i++){
+            const a = document.createElement('div');
+        const b = document.createElement('div');
+        const c = document.createElement('div');
+        const d = document.createElement('div');
+        const e = document.createElement('div');
+            document.getElementById('zakupione').appendChild(a);
+            document.getElementById('zakupione').appendChild(b);
+            document.getElementById('zakupione').appendChild(c);
+            document.getElementById('zakupione').appendChild(d);
+            document.getElementById('zakupione').appendChild(e);
+            a.className = 'nazwa';
+            b.className = 'rodzaj';
+            c.className = 'cena';
+            d.className = 'ilość';
+            e.className = 'koszt';
+            a.textContent = zamowienie.kupione[i].nazwa;
+            var ob ={};
+            for(let j = 0;j < artykul.length; j++){
+                if(artykul[j].nazwa.replace(/\s/g,"") == zamowienie.kupione[i].nazwa.replace(/\s/g,""))
+                {
+                    ob = artykul[j];
+                    break;
+                }
+            }
+            b.textContent = ob.rodzaj;
+            c.textContent = ob.cena + "zł/" + ob.jednostka ;
+            d.textContent= zamowienie.kupione[i].ilość ;
+            let kos = Math.round(zamowienie.kupione[i].ilość * ob.cena *100.0)/100.0;
+            e.textContent = kos +" zł";
+            total += kos;
+        } const tempo = document.createElement('p');
+        tempo.className = "finish";
+        document.getElementsByTagName('body')[0].appendChild(tempo);
+        total = Math.round(total*100.0)/100.0;
+        tempo.textContent = "Koszt całkowity: " +total + " zł";
+        document.getElementById('wyloguj').addEventListener('click',async ()=>{const response = await fetch('/wyloguj',{method: "DELETE",headers:{
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify({
+                login: $("#sp").text().replace(/\s/g,"")
+            })});
+                if(response.status == 200){
+                window.location.href="/log";}
+                else{
+                    console.log(resp.json());
+                }
+            });
+            document.getElementById('wyloguj').addEventListener('mouseenter',function(){
+                document.getElementById('wyloguj').style.cursor = "pointer";
+            });
+            document.getElementById('wyloguj').addEventListener('mouseleave',function(){
+                document.getElementById('wyloguj').style.cursor = "default";
+            });
+            async function run(){
+            const resp = await  fetch('/koszt',{method: "POST",headers:{
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify({
+                cena: total,
+                id_zam: zamowienie.id
+            })}); 
+            if(resp.status != 200){
+                    console.log(res.json());
+                }}
+            run();</script>
+
+</body>
+</html>

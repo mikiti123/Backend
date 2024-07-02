@@ -1,0 +1,36 @@
+#zakupione{
+    display:grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+.n1{
+    font-weight: bold;
+    border-bottom-style: solid;
+}
+.nazwa{
+    border-bottom-style: solid;
+}
+.cena{
+    border-bottom-style: solid;
+}
+.rodzaj{
+    border-bottom-style: solid;
+}
+.ilość{
+    border-bottom-style: solid;
+}
+.koszt{
+    border-bottom-style: solid;
+}
+.finish{
+    color:red;
+    font-weight: 800;
+}
+#konto{
+    border-style:solid;
+    width:200px;
+    padding:20px;
+}
+#sp{
+    font-weight: bold;
+    font-size:x-large;
+}
